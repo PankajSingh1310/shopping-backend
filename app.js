@@ -1,5 +1,5 @@
 const express = require("express");
-const app = express();
+require('dotenv').config();
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const db = require("./config/mongooseConnection");
@@ -7,6 +7,7 @@ const usersRouter = require("./routes/usersRouter");
 const ownersRouter = require("./routes/ownersRouter");
 const productsRouter = require("./routes/productsRouter");
 
+const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.json());

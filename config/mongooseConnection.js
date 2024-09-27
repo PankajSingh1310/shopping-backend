@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/shopping")
+mongoose.connect(`${process.env.MONGO_URI}/shopping`)
 .then(() => {
     console.log("Database connected successfully");
 })
