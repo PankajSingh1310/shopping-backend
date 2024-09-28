@@ -6,6 +6,7 @@ const db = require("./config/mongooseConnection");
 const usersRouter = require("./routes/usersRouter");
 const ownersRouter = require("./routes/ownersRouter");
 const productsRouter = require("./routes/productsRouter");
+const baseRouter = require("./routes/index");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 
+app.use("/", baseRouter);
 app.use("/owners", ownersRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
