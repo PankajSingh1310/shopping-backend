@@ -21,4 +21,10 @@ router.post("/create", async (req, res) => {
     res.status(201).send(createdOwner);
 })
 
+router.get("/admin", (req, res) => {
+    // const success = req.flash("success");
+    // res.render("createProducts", {success});
+    res.send("admin panel");
+})
+
 module.exports = router;

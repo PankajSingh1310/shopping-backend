@@ -7,8 +7,20 @@ const usersRouter = require("./routes/usersRouter");
 const ownersRouter = require("./routes/ownersRouter");
 const productsRouter = require("./routes/productsRouter");
 const baseRouter = require("./routes/index");
+const flash = require("connect-flash");
+const expressSession = require("express-session");
 
 const app = express();
+
+app.use(
+    expressSession({
+        resave: false,
+        saveUninitialized: false,
+        secret: process.env.EXPRESS_SESSION_SECRET
+    })
+);
+
+app.use(flash());
 
 app.set("view engine", "ejs");
 app.use(express.json());

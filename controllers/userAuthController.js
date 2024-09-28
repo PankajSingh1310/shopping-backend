@@ -45,8 +45,16 @@ module.exports.loginUser = async (req, res) => {
         res.cookie("token", token);
         res.send("you can login");
       }
+      else{
+        return res.send("somthing went wrong");
+      }
     })
   }catch(err){
-    console.log(err.message);
+    res.send(err.message);
   }
+};
+
+module.exports.logoutUser = async (req, res) => {
+  res.cookie("token", "");
+  res.redirect("/");
 }
